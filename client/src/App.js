@@ -1,7 +1,10 @@
 import React from 'react';
 import NavBar from './Component/NavBar';
 import Footer from './Component/Footer';
-import './App.css';
+import Login from './Component/Login';
+import SignIn from './Component/SignIn';
+import { Route } from 'react-router-dom';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,8 +18,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <NavBar navTitle={this.state.navTitle} />
+        <Login />
+        <Route path="/user" component={SignIn} exact />
         <Footer setNavTitle={this.setNavTitle} />
       </div>
     );
