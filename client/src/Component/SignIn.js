@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../Css/SignIn.css';
 
 class SignIn extends React.Component {
@@ -17,21 +18,32 @@ class SignIn extends React.Component {
               <td>PASSWORD</td>
               <td>
                 <input className="password" type="password" />
-                <input className="password" type="password" />
-                <input className="password" type="password" />
+              </td>
+            </tr>
+            <tr>
+              <td>PASSWORD Check</td>
+              <td>
                 <input className="password" type="password" />
               </td>
             </tr>
-            <tr className="login">
-              <td></td>
+            <tr>
+              <td>Mobile</td>
               <td>
-                <button>Login</button>
+                <input className="mobile" type="text" />
               </td>
             </tr>
-            <tr className="login">
+            <tr>
+              <td>Email</td>
+              <td>
+                <input className="email" type="text" />
+              </td>
+            </tr>
+            <tr className="SignIn">
               <td></td>
               <td>
-                <button>Sign In</button>
+                <Link to="/">
+                  <button>Sign In</button>
+                </Link>
               </td>
             </tr>
           </tbody>

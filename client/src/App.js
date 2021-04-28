@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <NavBar navTitle={this.state.navTitle} />
-        <Login />
+        <Route path="/" component={Login} exact />
         <Route path="/user" component={SignIn} exact />
         <Footer setNavTitle={this.setNavTitle} />
       </div>
