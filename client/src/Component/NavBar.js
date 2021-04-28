@@ -8,10 +8,13 @@ class NavBar extends React.Component {
       title: 'Apple Talk',
     };
   }
+
   render() {
     return (
       <div className="nav">
-        <div className="title">{this.state.title}</div>
+        <div className="title">
+          {this.props.navTitle === '' ? this.state.title : this.props.navTitle}
+        </div>
       </div>
     );
   }

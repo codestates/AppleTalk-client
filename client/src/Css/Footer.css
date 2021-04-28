@@ -8,6 +8,14 @@
   justify-content: center;
   bottom: 0;
 }
-.content {
+.chats {
+  font-size: 40px;
+  margin-left: 17%;
+  margin-right: 17%;
+}
+.friends {
+  font-size: 40px;
+}
+.mypage {
   font-size: 40px;
 }
