@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.friendsBox {
+  position: absolute;
+  display: flex;
+  width: 30%;
+  height: 10%;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.profileImg {
+  display: flex;
+  width: 30%;
+  height: 80%;
+  opacity: 0.5;
+  border: 1px solid black;
+  border-radius: 70px;
+  margin: 2%;
+  justify-content: center;
+  align-items: center;
+}
+
+.userId {
+  display: flex;
+  width: 40%;
+  height: 80%;
+  opacity: 0.5;
+  background: white;
+  border: 1px solid black;
+  border-radius: 70px;
+  margin: 2%;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatBtn {
+  display: flex;
+  width: 20%;
+  height: 80%;
+  opacity: 0.5;
+  background: white;
+  border: 1px solid black;
+  border-radius: 70px;
+  margin: 2%;
+  justify-content: center;
+  align-items: center;
+}

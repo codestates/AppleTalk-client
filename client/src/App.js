@@ -4,7 +4,7 @@ import Footer from "./Component/Footer";
 import Login from "./Component/Login";
 import SignIn from "./Component/SignIn";
 import MyPage from "./Component/MyPage";
-import Chat from "./Component/Chat";
+import FriendsList from "./Component/FriendsList";
 import { Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
         <Route path="/" component={Login} exact />
         <Route path="/user" component={SignIn} exact />
         <Route path="/mypage" component={MyPage} exact />
-        <Route path="/chat" component={Chat} exact />
+        <Route path="/friendslist" component={FriendsList} exact />
         <Footer setNavTitle={this.setNavTitle} />
       </div>
     );
