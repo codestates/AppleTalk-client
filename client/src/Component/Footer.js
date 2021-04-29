@@ -1,13 +1,14 @@
-import React from 'react';
-import '../Css/Footer.css';
+import React from "react";
+import "../Css/Footer.css";
+import { Link } from "react-router-dom";
 
 class Footer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      FriendsList: 'Friends List',
-      chatList: 'Chat List',
-      mypage: 'Mypage',
+      FriendsList: "Friends List",
+      chatList: "Chat List",
+      mypage: "Mypage",
     };
     this.changeTitle = this.changeTitle.bind(this);
   }
@@ -23,9 +24,11 @@ class Footer extends React.Component {
         <div className="chats" onClick={this.changeTitle}>
           {this.state.chatList}
         </div>
-        <div className="mypage" onClick={this.changeTitle}>
-          {this.state.mypage}
-        </div>
+        <Link to="/MyPage" style={{ textDecoration: "none" }}>
+          <div className="mypage" onClick={this.changeTitle}>
+            {this.state.mypage}
+          </div>
+        </Link>
       </div>
     );
   }
