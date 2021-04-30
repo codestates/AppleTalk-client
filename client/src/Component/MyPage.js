@@ -1,5 +1,5 @@
-import React from "react";
-import "../Css/MyPage.css";
+import React from 'react';
+import '../Css/MyPage.css';
 
 class MyPage extends React.Component {
   constructor(props) {
@@ -19,7 +19,6 @@ class MyPage extends React.Component {
                   <input className="password" type="password" />
                 </td>
               </tr>
-
               <tr>
                 <td>Mobile</td>
                 <td>
