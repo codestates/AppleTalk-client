@@ -2,11 +2,6 @@ import React from 'react';
 import '../Css/MyPage.css';
 
 class MyPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     return (
       <div>
