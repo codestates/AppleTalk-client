@@ -1,0 +1,15 @@
+.loginBox {
+  position: absolute;
+  top: 25ch;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.SignIn {
+  text-align: right;
+}
+#logintable {
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 40px;
+}

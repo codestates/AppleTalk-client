@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Css/NavBar.css';
+import { Link, withRouter } from 'react-router-dom';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -8,12 +9,19 @@ class NavBar extends React.Component {
       title: 'Apple Talk',
     };
   }
+
   render() {
     return (
       <div className="nav">
-        <div className="title">{this.state.title}</div>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <div className="title">
+            {this.props.navTitle === ''
+              ? this.state.title
+              : this.props.navTitle}
+          </div>
+        </Link>
       </div>
     );
   }
 }
-export default NavBar;
+export default withRouter(NavBar);
