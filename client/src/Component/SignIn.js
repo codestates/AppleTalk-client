@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 import '../Css/SignIn.css';
 
+const server = process.env.REACT_APP_SERVER_URL;
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,7 @@ class SignIn extends React.Component {
       errorMessage: '',
     };
     this.inputHandler = this.inputHandler.bind(this);
-    this.show = this.show.bind(this);
+    this.handleSubmitBtn = this.handleSubmitBtn.bind(this);
     //this.test = this.test.bind(this);
   }
   inputHandler = (key) => (event) => {
@@ -37,8 +38,28 @@ class SignIn extends React.Component {
     }
   };
 
-  show() {
-    console.log(this.state);
+  handleSubmitBtn() {
+    if (this.state.userid.length === 0) {
+      alert('아이디를 입력해 주세요');
+    } else if (
+      this.state.password.length === 0 ||
+      this.state.password.length === 0
+    ) {
+      alert('비밀번호를 입력해 주세요');
+    } else if (this.state.mobile.length === 0) {
+      alert('핸드폰번호를 입력해 주세요');
+    } else if (this.state.email.length === 0) {
+      alert('E-mail을 입력해 주세요');
+    } else {
+      axios
+        .post(`${server}/user/signin`, {
+          userid: this.state.userid,
+          password: this.state.password,
+        })
+        .then((response) => {
+          console.log('회원가입 처리 후에 해야함');
+        });
+    }
   }
 
   render() {
@@ -105,9 +126,7 @@ class SignIn extends React.Component {
             <tr className="SignIn">
               <td></td>
               <td>
-                <Link to="/">
-                  <button onClick={this.show}>Sign In</button>
-                </Link>
+                <button onClick={this.handleSubmitBtn}>Sign In</button>
               </td>
             </tr>
           </tbody>

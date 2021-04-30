@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../Css/FriendsList.css";
+import React, { useState } from 'react';
+import '../Css/FriendsList.css';
 // import axios from "axios";
 
 class FriendsList extends React.Component {
