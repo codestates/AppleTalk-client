@@ -18,7 +18,7 @@ class MyPage extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`${server}/user/세션아이디`)
+      .get(`${server}/user/info/${this.props.sessionId}`)
       .then((response) => response.json())
       .then((datas) => {
         this.setState({

@@ -5,15 +5,25 @@ import Login from './Component/Login';
 import SignIn from './Component/SignIn';
 import MyPage from './Component/MyPage';
 import ChatRoom from './Page/ChatRoom';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import FriendsList from './Page/FriendsList';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      sessionId: '',
+      isLogin: false,
       navTitle: '',
     };
     this.setNavTitle = this.setNavTitle.bind(this);
+    this.isLogin = this.isLogin.bind(this);
+  }
+  isLogin(userid) {
+    this.setState({
+      isLogin: true,
+      sessionId: userid,
+    });
   }
   setNavTitle(title) {
     this.setState({ navTitle: title });
@@ -22,12 +32,18 @@ class App extends React.Component {
     return (
       <div className="container">
         <NavBar navTitle={this.state.navTitle} />
-        <Route path="/" component={Login} exact />
+        {this.state.isLogin === true ? (
+          ((<FriendsList sessionId={this.state.sessionId} />),
+          (<Footer setNavTitle={this.setNavTitle} />))
+        ) : (
+          <Route
+            path="/"
+            render={() => <Login isLogin={this.isLogin} />}
+            exact
+          />
+        )}
         <Route path="/user" component={SignIn} exact />
-        <Route path="/mypage" component={MyPage} exact />
-        <Route Path="/chattingRoom" render={() => <ChatRoom />} exact />
         {/* <Route path="/chat" component={Chat} exact /> */}
-        <Footer setNavTitle={this.setNavTitle} />
       </div>
     );
   }

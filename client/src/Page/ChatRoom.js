@@ -3,7 +3,8 @@ import Message from '../Component/Message';
 //import axios from 'axios';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:8888');
+// const socket = io('http://localhost:8888');
+const socket = 'asd';
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class ChatRoom extends React.Component {
   }
   //방 접속 구현
   componentWillMount() {
-    socket.emit('join', 'userid');
+    //socket.emit('join', 'userid');
   }
   handleInputMessage(event) {
     this.setState({

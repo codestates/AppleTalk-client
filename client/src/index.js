@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 require('dotenv').config();
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );
