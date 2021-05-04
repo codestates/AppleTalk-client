@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../Css/FriendsList.css';
 import io from 'socket.io-client';
-
+const server = process.env.REACT_APP_SERVER_URL;
 // const socketServer = process.env.REACT_APP_SOCKET_URL;
 // const socket = io(socketServer);
 
@@ -12,6 +13,13 @@ class FriendsList extends React.Component {
       myid: '',
       friendsInfo: '',
     };
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+  async handleOnClick() {
+    await axios.post(`${server}/friend/add`, {
+      userid: this.state.myid,
+      friendid: this.state.friendsInfo.id,
+    });
   }
   componentDidMount() {
     this.setState({
@@ -22,11 +30,10 @@ class FriendsList extends React.Component {
   render() {
     return (
       <div className="friendsBox">
-        <div className="userId">{this.state.friendsInfo.user_name}</div>
-        <button className="chatBtn" onClick={this.handleChatBtn}>
-          chat
+        <div className="userId">{this.state.friendsInfo.user_id}</div>
+        <button className="chatBtn" onClick={this.handleOnClick}>
+          친구추가
         </button>
-        <div className="delete">x</div>
       </div>
     );
   }
