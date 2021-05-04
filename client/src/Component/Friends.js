@@ -18,7 +18,6 @@ class FriendsList extends React.Component {
     // socket.emit('join', this.props.sessienId);
     // this.props.history.push('/chatRoom');
   }
-
   render() {
     return (
       <div className="friendsBox">

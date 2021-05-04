@@ -11,17 +11,21 @@ class FriendsList extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get(`${server}/friends/list/${this.props.sessionId}`)
-      .then((response) => {
-        this.setState = {
-          friends: [...this.state.friends, response.friends],
-        };
-      });
+    let sessionId;
+    if (this.props.location) {
+      sessionId = this.props.location.sessionid;
+    } else {
+      sessionId = this.props.sessionId;
+    }
+    axios.get(`${server}/friends/list/${sessionId}`).then((response) => {
+      this.setState = {
+        friends: [...this.state.friends, response.friends],
+      };
+    });
   }
   render() {
     return (
-      <div>
+      <div className="FriendsList">
         {this.state.friends.map((friendsInfo, idx) => (
           <Friends
             sessienId={this.props.sessienId}

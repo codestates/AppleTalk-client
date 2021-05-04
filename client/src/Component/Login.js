@@ -13,12 +13,8 @@ class Login extends React.Component {
     };
     this.handleLoginBtn = this.handleLoginBtn.bind(this);
     this.handleInput = this.handleInput.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
   }
 
-  handleLogin(sessionId) {
-    this.props.isLogin(sessionId);
-  }
   handleLoginBtn() {
     if (this.state.userid.length === 0) {
       alert('아이디 입력해주세요!');
@@ -32,13 +28,14 @@ class Login extends React.Component {
         })
         .then((response) => {
           if (response.status === 200) {
-            this.handleLogin(response.data.id);
+            this.props.handleLogin(response.data.id, response.data.user_id);
           } else if (response.status === 401) {
             alert('없는 아이디 또는 비밀번호 오류!');
           }
         });
     }
   }
+
   handleInput = (key) => (event) => {
     this.setState({
       [key]: event.target.value,

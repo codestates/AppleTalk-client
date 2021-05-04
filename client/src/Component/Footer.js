@@ -1,38 +1,62 @@
 import React from 'react';
 import '../Css/Footer.css';
-import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userid: '',
+      sessionid: '',
       FriendsList: 'Friends List',
       chatList: 'Chat List',
       mypage: 'Mypage',
     };
-    this.changeTitle = this.changeTitle.bind(this);
   }
-  changeTitle(event) {
-    this.props.setNavTitle(event.target.innerHTML);
+
+  componentDidMount() {
+    this.setState({
+      userid: this.props.userId,
+      sessionid: this.props.sessionId,
+    });
   }
   render() {
     return (
       <div className="footer">
-        <Link to="/friendsList" style={{ textDecoration: 'none' }}>
-          <div className="friends" onClick={this.changeTitle}>
-            {this.state.FriendsList}
-          </div>
-        </Link>
-        <Link to="/chatList" style={{ textDecoration: 'none' }}>
-          <div className="chats" onClick={this.changeTitle}>
-            {this.state.chatList}
-          </div>
-        </Link>
-        <Link to="/myPage" style={{ textDecoration: 'none' }}>
-          <div className="mypage" onClick={this.changeTitle}>
-            {this.state.mypage}
-          </div>
-        </Link>
+        <div
+          className="friends"
+          onClick={() =>
+            this.props.history.push({
+              pathname: '/friendsList',
+              sessionid: this.state.sessionid,
+            })
+          }
+        >
+          {this.state.FriendsList}
+        </div>
+        <div
+          className="chats"
+          onClick={() =>
+            this.props.history.push({
+              pathname: '/chatList',
+              userid: this.state.userid,
+              history: this.props.history,
+            })
+          }
+        >
+          {this.state.chatList}
+        </div>
+        <div
+          className="mypage"
+          onClick={() =>
+            this.props.history.push({
+              pathname: '/mypage',
+              userid: this.state.userid,
+              history: this.props.history,
+            })
+          }
+        >
+          {this.state.mypage}
+        </div>
       </div>
     );
   }
