@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import NavBar from './Component/NavBar';
-import Footer from './Component/Footer';
-import Login from './Component/Login';
-import SignIn from './Component/SignIn';
-import MyPage from './Component/MyPage';
-import ChatList from './Page/ChatList';
-import FriendsList from './Page/FriendsList';
-import ChatRoom from './Page/ChatRoom';
-import { Route, useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import NavBar from "./Component/NavBar";
+import Footer from "./Component/Footer";
+import Login from "./Component/Login";
+import SignIn from "./Component/SignIn";
+import MyPage from "./Component/MyPage";
+import ChatList from "./Page/ChatList";
+import FriendsList from "./Page/FriendsList";
+import ChatRoom from "./Page/ChatRoom";
+import { Route, useHistory } from "react-router-dom";
+import "./App.css";
 
 const App = (props) => {
   const [sessionId, setSessionId] = useState();
@@ -27,6 +28,13 @@ const App = (props) => {
   return (
     <div className="container">
       <NavBar history={history} />
+
+      <Route exact path="/chatList" component={ChatList} />
+      <Route exact path="/friendsList" component={FriendsList} />
+      <Route exact path="/user" component={SignIn} />
+      <Route exact path="/mypage" component={MyPage} />
+      <Route exact path="/chattingRoom" component={ChatRoom} />
+
       <Route
         exact
         path="/"
@@ -44,13 +52,8 @@ const App = (props) => {
       {isLogin ? (
         <Footer userId={userId} sessionId={sessionId} history={history} />
       ) : (
-        ''
+        ""
       )}
-      <Route exact path="/chatList" component={ChatList} />
-      <Route exact path="/friendsList" component={FriendsList} />
-      <Route exact path="/user" component={SignIn} />
-      <Route exact path="/mypage" component={MyPage} />
-      <Route exact path="/chattingRoom" component={ChatRoom} />
     </div>
   );
 };

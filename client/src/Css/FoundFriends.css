@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Zen+Dots&display=swap");
+
+.found-friends-wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+
+  padding: 3%;
+  gap: 5px;
+  background-color: #d2d2d2;
+  justify-content: center;
+}
+
+.found-friends-Box {
+  width: 40%;
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 2.1%;
+  /* background-color: #ec2d2c; */
+  background: #833ab4;
+  background: -webkit-linear-gradient(to right, #1dfd3b, #fcb045);
+  background: linear-gradient(to right, #29991a, #fcb045);
+  border-radius: 20px;
+  gap: 5px;
+  height: 3rem;
+}
+
+/* .friends-profileImg {
+  font-family: "Zen Dots", cursive;
+  grid-area: friends-profileImg;
+  border: 1.9px solid white;
+  border-radius: 70px;
+  text-align: center;
+  margin: 4px;
+  height: 70px;
+  width: 70px;
+} */
+
+.found-friends-userId {
+  display: flex;
+  font-family: "Zen Dots", cursive;
+  font-size: 1rem;
+  grid-area: friends-userId;
+  height: 100%;
+  width: 70%;
+  margin-top: 10px;
+  text-align: center;
+  justify-content: center;
+
+  color: white;
+}
+
+.found-friends-chatBtn {
+  all: unset;
+  font-family: "Zen Dots", cursive;
+  grid-area: friends-chatBtn;
+  text-align: center;
+  height: 2rem;
+  width: 70px;
+  color: white;
+  border-radius: 10px;
+  background-color: #29991a;
+  transition: background-color 0.7s;
+}
+
+.found-friends-chatBtn:hover {
+  background-color: #6b193e;
+}

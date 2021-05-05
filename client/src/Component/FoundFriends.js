@@ -1,6 +1,6 @@
-import React from 'react';
-import axios from 'axios';
-import '../Css/FriendsList.css';
+import React from "react";
+import axios from "axios";
+import "../Css/FoundFriends.css";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -8,8 +8,8 @@ class FriendsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      myid: '',
-      friendsInfo: '',
+      myid: "",
+      friendsInfo: "",
     };
     this.handleOnClick = this.handleOnClick.bind(this);
   }
@@ -27,12 +27,25 @@ class FriendsList extends React.Component {
   }
   render() {
     return (
-      <div className="friendsBox">
-        <div className="userId">{this.state.friendsInfo.user_id}</div>
-        <button className="chatBtn" onClick={this.handleOnClick}>
-          친구추가
-        </button>
+      <div className="found-friends-wrap">
+        <div className="found-friends-Box">
+          <div className="found-friends-userId">
+            {this.state.friendsInfo.user_id}
+          </div>
+          <button
+            className="found-friends-chatBtn"
+            onClick={this.handleOnClick}
+          >
+            ADD
+          </button>
+        </div>
       </div>
+      // <div className="friendsBox">
+      //   <div className="userId">{this.state.friendsInfo.user_id}</div>
+      //   <button className="chatBtn" onClick={this.handleOnClick}>
+      //     친구추가
+      //   </button>
+      // </div>
     );
   }
 }

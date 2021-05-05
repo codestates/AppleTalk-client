@@ -1,53 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Zen+Dots&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-.friendsBox {
-  position: absolute;
+.Friends-List {
+  display: grid;
+  grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
+  height: 100%;
+  width: 100%;
+  background-color: #d2d2d2;
+  border-radius: 30px;
+  align-items: center;
+}
+
+.linked-friends {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 2%;
+}
+
+.search {
   display: flex;
-  width: 30%;
-  height: 10%;
-  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-inputBox {
+  width: 15rem;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #808080;
+  font-size: 1rem;
+  color: #808080;
+  outline: none;
+  font-family: "Zen Dots", cursive;
+  margin-bottom: 18px;
+}
+
+.search-inputButton {
+  font-family: "Zen Dots", cursive;
+  width: 6rem;
+  height: 2rem;
+  background: #fc4645;
+  color: #fff;
+  font-size: 1rem;
+  font-size-adjust: inherit;
+  border: none;
+  border-radius: 25px;
+  margin-left: 4px;
+}
+
+.search-inputButton:hover {
+  background: #5f1a1a;
+}
+
+.Friends-List h1 {
+  font-size: 32px;
+  color: #fc4645;
   text-align: center;
-  border-radius: 10px;
-}
 
-.profileImg {
-  display: flex;
-  width: 30%;
-  height: 80%;
-  opacity: 0.5;
-  border: 1px solid black;
-  border-radius: 70px;
-  margin: 2%;
-  justify-content: center;
-  align-items: center;
-}
-
-.userId {
-  display: flex;
-  width: 40%;
-  height: 80%;
-  opacity: 0.5;
-  background: white;
-  border: 1px solid black;
-  border-radius: 70px;
-  margin: 2%;
-  justify-content: center;
-  align-items: center;
-}
-
-.chatBtn {
-  display: flex;
-  width: 20%;
-  height: 80%;
-  opacity: 0.5;
-  background: white;
-  border: 1px solid black;
-  border-radius: 70px;
-  margin: 2%;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
