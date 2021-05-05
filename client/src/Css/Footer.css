@@ -2,11 +2,13 @@
 
 .footer {
   display: grid;
+  height: 50%;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  padding-left: 3%;
-
+  border-radius: 30px;
+  border: 2px solid #f95756;
   font-family: "Zen Dots", cursive;
+  place-items: center;
 }
 
 .footer div {
@@ -32,6 +34,7 @@
 
 .footer div:hover {
   color: #fc4645;
+  cursor: pointer;
 }
 
 .footer div:hover::after {

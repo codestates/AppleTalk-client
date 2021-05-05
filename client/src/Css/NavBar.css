@@ -18,7 +18,8 @@
   align-items: center;
   margin-right: 5%;
   font-family: "Zen Dots", cursive;
-  color: #808080;
+  color: #fc4645;
+  cursor: pointer;
 }
 .atLogo {
   margin-top: 5%;

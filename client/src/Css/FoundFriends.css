@@ -61,10 +61,11 @@
   width: 70px;
   color: white;
   border-radius: 10px;
-  background-color: #29991a;
+  background-color: #1d6d13;
   transition: background-color 0.7s;
 }
 
 .found-friends-chatBtn:hover {
   background-color: #6b193e;
+  cursor: pointer;
 }

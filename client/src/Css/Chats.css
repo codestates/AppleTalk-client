@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Zen+Dots&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.room {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr;
+  width: 90%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background: #833ab4;
+  background: -webkit-linear-gradient(to right, #fd1d1d, #fcb045);
+  background: linear-gradient(to right, #fd1d1d, #fcb045);
+  border-radius: 20px;
+}
+
+.room-name {
+  display: inline;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  padding-right: 2%;
+  height: 80%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.room-enter-btn {
+  all: unset;
+  color: white;
+  font-size: 0.8rem;
+  height: 80%;
+  border-radius: 10px;
+  background-color: #b93333;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.room-enter-btn:hover {
+  background-color: #6b193e;
+  cursor: pointer;
+}

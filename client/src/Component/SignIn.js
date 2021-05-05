@@ -100,7 +100,7 @@ class SignIn extends React.Component {
               autoComplete="off"
               required
             ></input>
-            <label htmlFor="pw">PASSWORD</label>
+            <label htmlFor="pw">Password</label>
           </div>
 
           <div className="signin-int-area">
@@ -113,7 +113,7 @@ class SignIn extends React.Component {
               autoComplete="off"
               required
             ></input>
-            <label htmlFor="pwch">PASSWORD Confirm</label>
+            <label htmlFor="pwch">Password Confirm</label>
             <div classNanme="pwch-msg">
               {this.state.errorMessage !== "" ? this.state.errorMessage : ""}
             </div>
@@ -129,7 +129,7 @@ class SignIn extends React.Component {
               autoComplete="off"
               required
             ></input>
-            <label htmlFor="pwch">NickName</label>
+            <label htmlFor="pwch">Nickname</label>
           </div>
 
           <div className="signin-int-area">
@@ -142,6 +142,7 @@ class SignIn extends React.Component {
               autoComplete="off"
               required
             ></input>
+
             <label htmlFor="pw">Mobile</label>
           </div>
 
@@ -155,7 +156,7 @@ class SignIn extends React.Component {
               autoComplete="off"
               required
             ></input>
-            <label htmlFor="Email">Email</label>
+            <label htmlFor="Email">E-mail</label>
           </div>
 
           <div className="caption-signin">

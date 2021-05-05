@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Chats from '../Component/Chats';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Chats from "../Component/Chats";
+import "../Css/ChatList.css";
 const server = process.env.REACT_APP_SERVER_URL;
 
 const ChatList = (props) => {

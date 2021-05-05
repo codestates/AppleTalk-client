@@ -9,7 +9,7 @@
 
 .Friends-List {
   display: grid;
-  grid-template-rows: 0.1fr 1fr 0.2fr 0.2fr;
+  grid-template-rows: 0.2fr 1fr 0.2fr 0.2fr;
   height: 100%;
   width: 100%;
   background-color: #d2d2d2;
@@ -21,7 +21,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  padding: 2%;
+  padding: 5%;
 }
 
 .search {
@@ -52,12 +52,13 @@
   font-size: 1rem;
   font-size-adjust: inherit;
   border: none;
-  border-radius: 25px;
+  border-radius: 15px;
   margin-left: 4px;
 }
 
 .search-inputButton:hover {
   background: #5f1a1a;
+  cursor: pointer;
 }
 
 .Friends-List h1 {

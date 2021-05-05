@@ -24,7 +24,8 @@
   background: #833ab4;
   background: -webkit-linear-gradient(to right, #fd1d1d, #fcb045);
   background: linear-gradient(to right, #fd1d1d, #fcb045);
-  border-radius: 20px;
+  /* border-radius: 20px; */
+  border-radius: 10px;
   gap: 10px;
   height: 3rem;
 }
@@ -63,12 +64,13 @@
   width: 90px;
   color: white;
   border-radius: 10px;
-  background-color: #fc4645;
+  background-color: #aa2e2e;
   transition: background-color 0.7s;
 }
 
 .friends-chatBtn:hover {
   background-color: #6b193e;
+  cursor: pointer;
 }
 
 .far fa-trash-alt {
