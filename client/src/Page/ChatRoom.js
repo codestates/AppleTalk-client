@@ -1,9 +1,10 @@
 import React from 'react';
 import Message from '../Component/Message';
-//import axios from 'axios';
+import axios from 'axios';
 import io from 'socket.io-client';
 
 const socket = io('http://localhost:8888');
+const server = process.env.REACT_APP_SERVER_URL;
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -16,9 +17,21 @@ class ChatRoom extends React.Component {
     this.handleBtnClick = this.handleBtnClick.bind(this);
   }
   //방 접속 구현
-  componentWillMount() {
-    socket.emit('join', 'userid');
+  async componentWillMount() {
+    let roomNum;
+    await axios
+      .post(`${server}/chat/makeroom`, {
+        userid: this.props.location.datas.myid,
+        friendid: this.props.location.datas.friendId,
+      })
+      .then((response) => (roomNum = response.data.roomid.room_id));
+
+    await socket.emit('join', roomNum);
+    socket.on('receive', (message) => {
+      console.log(message);
+    });
   }
+
   handleInputMessage(event) {
     this.setState({
       message: event.target.value,

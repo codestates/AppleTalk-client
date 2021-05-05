@@ -8,6 +8,7 @@ class SignIn extends React.Component {
     super(props);
     this.state = {
       userid: '',
+      username: '',
       password: '',
       passwordC: '',
       email: '',
@@ -50,22 +51,32 @@ class SignIn extends React.Component {
       alert('핸드폰번호를 입력해 주세요');
     } else if (this.state.email.length === 0) {
       alert('E-mail을 입력해 주세요');
+    } else if (this.state.username.length === 0) {
+      alert('닉네임을 입력해 주세요!');
     } else {
       axios
-        .post(`${server}/user/signin`, {
+        .post(`${server}/user/signup`, {
           userid: this.state.userid,
+          username: this.state.username,
           password: this.state.password,
+          email: this.state.email,
+          mobile: this.state.mobile,
         })
         .then((response) => {
-          console.log('회원가입 처리 후에 해야함');
+          if (response.status === 201) {
+            alert('회원가입을 환영합니다!');
+            this.props.history.push('/');
+          } else {
+            alert('다시작성해 주세요!');
+          }
         });
     }
   }
 
   render() {
     return (
-      <div className="loginBox">
-        <table id="logintable">
+      <div className="signinBox">
+        <table id="signinTable">
           <tbody>
             <tr>
               <td>ID</td>
@@ -101,6 +112,16 @@ class SignIn extends React.Component {
                     ? this.state.errorMessage
                     : ''}
                 </div>
+              </td>
+            </tr>
+            <tr>
+              <td>NickName</td>
+              <td>
+                <input
+                  className="Nickname"
+                  type="text"
+                  onChange={this.inputHandler('username')}
+                />
               </td>
             </tr>
             <tr>

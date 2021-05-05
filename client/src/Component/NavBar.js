@@ -1,27 +1,16 @@
 import React from 'react';
 import '../Css/NavBar.css';
-import { Link, withRouter } from 'react-router-dom';
 
-class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: 'Apple Talk',
-    };
-  }
-
-  render() {
-    return (
-      <div className="nav">
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <div className="title">
-            {this.props.navTitle === ''
-              ? this.state.title
-              : this.props.navTitle}
-          </div>
-        </Link>
+const NavBar = ({ history }) => {
+  const handleClick = () => {
+    history.push('/');
+  };
+  return (
+    <div className="nav">
+      <div className="title" onClick={handleClick}>
+        Apple Talk
       </div>
-    );
-  }
-}
-export default withRouter(NavBar);
+    </div>
+  );
+};
+export default NavBar;

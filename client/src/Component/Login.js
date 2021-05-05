@@ -13,6 +13,12 @@ class Login extends React.Component {
     };
     this.handleLoginBtn = this.handleLoginBtn.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleunLoginBtn = this.handleunLoginBtn.bind(this);
+  }
+  handleunLoginBtn() {
+    axios
+      .get(`${server}/user/nonMember`)
+      .then((response) => this.props.handleunLogin());
   }
   handleLoginBtn() {
     if (this.state.userid.length === 0) {
@@ -26,10 +32,15 @@ class Login extends React.Component {
           password: this.state.password,
         })
         .then((response) => {
-          console.log('로그인 처리 후에 해야함');
+          if (response.status === 200) {
+            this.props.handleLogin(response.data.id, response.data.user_id);
+          } else if (response.status === 401) {
+            alert('없는 아이디 또는 비밀번호 오류!');
+          }
         });
     }
   }
+
   handleInput = (key) => (event) => {
     this.setState({
       [key]: event.target.value,
@@ -64,6 +75,12 @@ class Login extends React.Component {
               <td></td>
               <td>
                 <button onClick={this.handleLoginBtn}>Login</button>
+              </td>
+            </tr>
+            <tr className="login">
+              <td></td>
+              <td>
+                <button onClick={this.handleunLoginBtn}>비회원로그인</button>
               </td>
             </tr>
             <tr className="login">

@@ -18,16 +18,16 @@ class MyPage extends React.Component {
   }
   componentDidMount() {
     axios
-      .get(`${server}/user/세션아이디`)
-      .then((response) => response.json())
-      .then((datas) => {
+      .get(`${server}/user/info?sessionid=${this.props.location.userid}`)
+      .then((response) => {
         this.setState({
-          trashpassword: datas.password,
-          mobile: datas.password,
-          email: datas.email,
+          trashpassword: response.data.password,
+          mobile: response.data.mobile,
+          email: response.data.email,
         });
       });
   }
+
   handleInput = (key) => (event) => {
     this.setState({
       [key]: event.target.value,
@@ -42,13 +42,18 @@ class MyPage extends React.Component {
       alert('E-mail을 입력해 주세요');
     } else {
       axios
-        .put(`${server}/user/update`, {
+        .post(`${server}/user/change`, {
+          userid: this.props.location.userid,
           password: this.state.password,
           mobile: this.state.mobile,
           email: this.state.email,
         })
-        .then((response) => response.json())
-        .then(console.log('업데이트후 후처리 해줘야함 '));
+        .then((response) => {
+          if (response.status === 200) {
+            alert('수정 완료! 로그아웃 되었습니다!');
+            this.props.history.push('/');
+          }
+        });
     }
   }
   render() {
