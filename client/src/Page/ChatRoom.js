@@ -1,7 +1,8 @@
-import React from 'react';
-import Message from '../Component/Message';
-import axios from 'axios';
-import io from 'socket.io-client';
+import React from "react";
+import Message from "../Component/Message";
+import axios from "axios";
+import io from "socket.io-client";
+import "../Css/ChatRoom.css";
 
 let socket;
 const server = process.env.REACT_APP_SERVER_URL;
@@ -10,7 +11,7 @@ class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: '',
+      message: "",
       messageList: [],
     };
     this.handleInputMessage = this.handleInputMessage.bind(this);
@@ -18,7 +19,7 @@ class ChatRoom extends React.Component {
   }
   //방 접속 구현
   async componentWillMount() {
-    socket = io('http://localhost:8888');
+    socket = io("http://localhost:8888");
     let roomNum;
     await axios
       .post(`${server}/chat/makeroom`, {
@@ -27,8 +28,8 @@ class ChatRoom extends React.Component {
       })
       .then((response) => (roomNum = response.data.roomid.room_id));
 
-    await socket.emit('join', roomNum);
-    socket.on('message', (message) => {
+    await socket.emit("join", roomNum);
+    socket.on("message", (message) => {
       this.setState({
         messageList: [...this.state.messageList, message],
       });
@@ -42,7 +43,7 @@ class ChatRoom extends React.Component {
   }
   handleBtnClick() {
     let message = this.state.message;
-    socket.emit('message', message);
+    socket.emit("message", message);
   }
   render() {
     return (
