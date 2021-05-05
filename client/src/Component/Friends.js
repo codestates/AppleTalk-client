@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import axios from 'axios';
 import '../Css/FriendsList.css';
-import io from 'socket.io-client';
 
+const server = process.env.REACT_APP_SERVER_URL;
 // const socketServer = process.env.REACT_APP_SOCKET_URL;
 // const socket = io(socketServer);
 
@@ -12,11 +13,28 @@ class FriendsList extends React.Component {
       myid: '',
       friendsInfo: '',
     };
+    this.handleDeleteBtn = this.handleDeleteBtn.bind(this);
+    this.handleChatBtn = this.handleChatBtn.bind(this);
   }
   componentDidMount() {
     this.setState({
       myid: this.props.sessionId,
       friendsInfo: this.props.friendsInfo,
+    });
+  }
+  async handleChatBtn() {
+    this.props.history.push({
+      pathname: '/chattingRoom',
+      datas: {
+        myid: this.state.myid,
+        friendId: this.state.friendsInfo.friend_id,
+      },
+    });
+  }
+  async handleDeleteBtn() {
+    await axios.post(`${server}/friend/remove/`, {
+      userid: this.state.myid,
+      friendid: this.state.friendsInfo.friend_id,
     });
   }
   render() {
@@ -26,7 +44,9 @@ class FriendsList extends React.Component {
         <button className="chatBtn" onClick={this.handleChatBtn}>
           chat
         </button>
-        <div className="delete">x</div>
+        <div className="delete" onClick={this.handleDeleteBtn}>
+          x
+        </div>
       </div>
     );
   }

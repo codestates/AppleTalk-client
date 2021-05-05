@@ -8,7 +8,7 @@ const ChatList = (props) => {
 
   useEffect(() => {
     axios
-      .get(`${server}/friend/list?userid=${props.userid}`)
+      .get(`${server}/friend/list?userid=${props.location.sessionid}`)
       .then((response) => {
         setChatLists(response.data.friendsList);
       });

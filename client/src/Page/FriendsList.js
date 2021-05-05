@@ -69,9 +69,11 @@ class FriendsList extends React.Component {
             )}
           </div>
         </div>
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
         {this.state.friends.map((friendsInfo, idx) => (
           <Friends
-            sessienId={this.props.sessienId}
+            history={this.props.history}
+            sessionId={this.props.sessionId}
             friendsInfo={friendsInfo}
             key={idx}
           />

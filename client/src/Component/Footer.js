@@ -28,6 +28,7 @@ class Footer extends React.Component {
             this.props.history.push({
               pathname: '/friendsList',
               sessionid: this.state.sessionid,
+              history: this.props.history,
             })
           }
         >
@@ -39,6 +40,7 @@ class Footer extends React.Component {
             this.props.history.push({
               pathname: '/chatList',
               userid: this.state.userid,
+              sessionid: this.state.sessionid,
               history: this.props.history,
             })
           }

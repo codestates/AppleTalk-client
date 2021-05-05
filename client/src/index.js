@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import App2 from './App2';
+
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 require('dotenv').config();
 
 ReactDOM.render(
   <BrowserRouter>
-    <App2 />
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 );
