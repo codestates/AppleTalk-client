@@ -1,15 +1,15 @@
-import React from 'react';
-import '../Css/Footer.css';
+import React from "react";
+import "../Css/Footer.css";
 
 class Footer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userid: '',
-      sessionid: '',
-      FriendsList: 'Friends List',
-      chatList: 'Chat List',
-      mypage: 'Mypage',
+      userid: "",
+      sessionid: "",
+      FriendsList: "Friends List",
+      chatList: "Chat List",
+      mypage: "Mypage",
     };
   }
 
@@ -23,43 +23,82 @@ class Footer extends React.Component {
     return (
       <div className="footer">
         <div
-          className="friends"
+          className="friends-list-tab"
           onClick={() =>
             this.props.history.push({
-              pathname: '/friendsList',
+              pathname: "/friendsList",
               sessionid: this.state.sessionid,
               history: this.props.history,
             })
           }
         >
-          {this.state.FriendsList}
+          <i className="fas fa-user-friends" /> {this.state.FriendsList}
         </div>
         <div
           className="chats"
           onClick={() =>
             this.props.history.push({
-              pathname: '/chatList',
+              pathname: "/chatList",
               userid: this.state.userid,
               sessionid: this.state.sessionid,
               history: this.props.history,
             })
           }
         >
-          {this.state.chatList}
+          <i className="fas fa-comments"></i> {this.state.chatList}
         </div>
         <div
           className="mypage"
           onClick={() =>
             this.props.history.push({
-              pathname: '/mypage',
+              pathname: "/mypage",
               userid: this.state.userid,
               history: this.props.history,
             })
           }
         >
-          {this.state.mypage}
+          <i className="fas fa-file"></i> {this.state.mypage}
         </div>
       </div>
+      // <div className="footer">
+      //   <div
+      //     className="friends"
+      //     onClick={() =>
+      //       this.props.history.push({
+      //         pathname: '/friendsList',
+      //         sessionid: this.state.sessionid,
+      //         history: this.props.history,
+      //       })
+      //     }
+      //   >
+      //     {this.state.FriendsList}
+      //   </div>
+      //   <div
+      //     className="chats"
+      //     onClick={() =>
+      //       this.props.history.push({
+      //         pathname: '/chatList',
+      //         userid: this.state.userid,
+      //         sessionid: this.state.sessionid,
+      //         history: this.props.history,
+      //       })
+      //     }
+      //   >
+      //     {this.state.chatList}
+      //   </div>
+      //   <div
+      //     className="mypage"
+      //     onClick={() =>
+      //       this.props.history.push({
+      //         pathname: '/mypage',
+      //         userid: this.state.userid,
+      //         history: this.props.history,
+      //       })
+      //     }
+      //   >
+      //     {this.state.mypage}
+      //   </div>
+      // </div>
     );
   }
 }

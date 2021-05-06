@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import '../Css/FriendsList.css';
+import '../Css/Friends.css';
 
 const server = process.env.REACT_APP_SERVER_URL;
 // const socketServer = process.env.REACT_APP_SOCKET_URL;
@@ -39,15 +39,26 @@ class FriendsList extends React.Component {
   }
   render() {
     return (
-      <div className="friendsBox">
-        <div className="userId">{this.state.friendsInfo.user_name}</div>
-        <button className="chatBtn" onClick={this.handleChatBtn}>
-          chat
+      // <div className="friends-wrap">
+      <div className="friends-Box">
+        <button className="friends-delete-btn" onClick={this.handleDeleteBtn}>
+          <i className="far fa-trash-alt"></i>
         </button>
-        <div className="delete" onClick={this.handleDeleteBtn}>
-          x
-        </div>
+        <div className="friends-userId">{this.state.friendsInfo.user_name}</div>
+        <button className="friends-chatBtn" onClick={this.handleChatBtn}>
+          Chat
+        </button>
       </div>
+      // </div>
+      // <div className="friendsBox">
+      //   <div className="userId">{this.state.friendsInfo.user_name}</div>
+      //   <button className="chatBtn" onClick={this.handleChatBtn}>
+      //     chat
+      //   </button>
+      //   <div className="delete" onClick={this.handleDeleteBtn}>
+      //     x
+      //   </div>
+      // </div>
     );
   }
 }

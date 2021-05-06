@@ -26,9 +26,9 @@ class SignIn extends React.Component {
     if (key === 'passwordC') {
       setTimeout(() => {
         if (this.state.password === this.state.passwordC) {
-          this.setState({ errorMessage: 'ooooo' });
+          this.setState({ errorMessage: '비밀번호 일치!' });
         } else if (this.state.password !== this.state.passwordC) {
-          this.setState({ errorMessage: 'xxxx' });
+          this.setState({ errorMessage: '비밀번호 불일치!!' });
         }
       }, 100);
       setTimeout(() => {
@@ -76,83 +76,172 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className="signinBox">
-        <table id="signinTable">
-          <tbody>
-            <tr>
-              <td>ID</td>
-              <td>
-                <input
-                  className="userid"
-                  type="text"
-                  onChange={this.inputHandler('userid')}
-                  // onBlur={this.test}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>PASSWORD</td>
-              <td>
-                <input
-                  className="password"
-                  type="password"
-                  onChange={this.inputHandler('password')}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>PASSWORD Check</td>
-              <td>
-                <input
-                  className="passwordC"
-                  type="password"
-                  onChange={this.inputHandler('passwordC')}
-                />
-                <div>
-                  {this.state.errorMessage !== ''
-                    ? this.state.errorMessage
-                    : ''}
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>NickName</td>
-              <td>
-                <input
-                  className="Nickname"
-                  type="text"
-                  onChange={this.inputHandler('username')}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Mobile</td>
-              <td>
-                <input
-                  className="mobile"
-                  type="text"
-                  onChange={this.inputHandler('mobile')}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>
-                <input
-                  className="email"
-                  type="text"
-                  onChange={this.inputHandler('email')}
-                />
-              </td>
-            </tr>
-            <tr className="SignIn">
-              <td></td>
-              <td>
-                <button onClick={this.handleSubmitBtn}>Sign In</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <section className="signin-form">
+          <h1>LOGIN</h1>
+          <div className="signin-int-area">
+            <input
+              onChange={this.inputHandler('userid')}
+              type="text"
+              name="id"
+              id="id"
+              autoComplete="off"
+              required
+            ></input>
+            <label htmlFor="id">ID</label>
+          </div>
+
+          <div className="signin-int-area">
+            <input
+              onChange={this.inputHandler('password')}
+              type="password"
+              name="pw
+                "
+              id="pw"
+              autoComplete="off"
+              required
+            ></input>
+            <label htmlFor="pw">Password</label>
+          </div>
+
+          <div className="signin-int-area">
+            <input
+              onChange={this.inputHandler('passwordC')}
+              type="password"
+              name="pwch
+                "
+              id="pwch"
+              autoComplete="off"
+              required
+            ></input>
+            <label htmlFor="pwch">Password Confirm</label>
+            <div classNanme="pwch-msg">
+              {this.state.errorMessage !== '' ? this.state.errorMessage : ''}
+            </div>
+          </div>
+
+          <div className="signin-int-area">
+            <input
+              onChange={this.inputHandler('username')}
+              type="text"
+              name="nickname
+                "
+              id="nickname"
+              autoComplete="off"
+              required
+            ></input>
+            <label htmlFor="pwch">Nickname</label>
+          </div>
+
+          <div className="signin-int-area">
+            <input
+              onChange={this.inputHandler('mobile')}
+              type="text"
+              name="Mobile
+                "
+              id="Mobile"
+              autoComplete="off"
+              required
+            ></input>
+
+            <label htmlFor="pw">Mobile</label>
+          </div>
+
+          <div className="signin-int-area">
+            <input
+              onChange={this.inputHandler('email')}
+              type="text"
+              name="Email
+                "
+              id="Email"
+              autoComplete="off"
+              required
+            ></input>
+            <label htmlFor="Email">E-mail</label>
+          </div>
+
+          <div className="caption-signin">
+            <button onClick={this.handleSubmitBtn}>Sign In</button>
+          </div>
+        </section>
       </div>
+      // <div className="signinBox">
+      //   <table id="signinTable">
+      //     <tbody>
+      //       <tr>
+      //         <td>ID</td>
+      //         <td>
+      //           <input
+      //             className="userid"
+      //             type="text"
+      //             onChange={this.inputHandler('userid')}
+      //             // onBlur={this.test}
+      //           />
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td>PASSWORD</td>
+      //         <td>
+      //           <input
+      //             className="password"
+      //             type="password"
+      //             onChange={this.inputHandler('password')}
+      //           />
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td>PASSWORD Check</td>
+      //         <td>
+      //           <input
+      //             className="passwordC"
+      //             type="password"
+      //             onChange={this.inputHandler('passwordC')}
+      //           />
+      //           <div>
+      //             {this.state.errorMessage !== ''
+      //               ? this.state.errorMessage
+      //               : ''}
+      //           </div>
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td>NickName</td>
+      //         <td>
+      //           <input
+      //             className="Nickname"
+      //             type="text"
+      //             onChange={this.inputHandler('username')}
+      //           />
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td>Mobile</td>
+      //         <td>
+      //           <input
+      //             className="mobile"
+      //             type="text"
+      //             onChange={this.inputHandler('mobile')}
+      //           />
+      //         </td>
+      //       </tr>
+      //       <tr>
+      //         <td>Email</td>
+      //         <td>
+      //           <input
+      //             className="email"
+      //             type="text"
+      //             onChange={this.inputHandler('email')}
+      //           />
+      //         </td>
+      //       </tr>
+      //       <tr className="SignIn">
+      //         <td></td>
+      //         <td>
+      //           <button onClick={this.handleSubmitBtn}>Sign In</button>
+      //         </td>
+      //       </tr>
+      //     </tbody>
+      //   </table>
+      // </div>
     );
   }
 }

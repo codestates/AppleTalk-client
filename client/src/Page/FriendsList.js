@@ -2,6 +2,7 @@ import React from 'react';
 import Friends from '../Component/Friends';
 import FoundFriends from '../Component/FoundFriends';
 import axios from 'axios';
+import '../Css/FriendsList.css';
 const server = process.env.REACT_APP_SERVER_URL;
 
 class FriendsList extends React.Component {
@@ -47,38 +48,74 @@ class FriendsList extends React.Component {
   }
   render() {
     return (
-      <div className="FriendsList">
-        <div className="search">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <input type="text" onChange={this.handleOnChange} />
-          <button onClick={this.handleOnClick}>친구 찾기</button>
-          <div className="result">
-            {this.state.foundInfo === '' ? (
-              ''
-            ) : (
-              <FoundFriends
-                friendsInfo={this.state.foundInfo}
-                sessionId={this.state.sessionId}
-              />
-            )}
-          </div>
+      <div className="Friends-List">
+        <h1>Friends List</h1>
+        <div className="linked-friends">
+          {this.state.friends.map((friendsInfo, idx) => (
+            <Friends
+              history={this.props.history}
+              sessionId={this.props.sessionId}
+              friendsInfo={friendsInfo}
+              key={idx}
+            />
+          ))}
         </div>
-        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-        {this.state.friends.map((friendsInfo, idx) => (
-          <Friends
-            history={this.props.history}
-            sessionId={this.props.sessionId}
-            friendsInfo={friendsInfo}
-            key={idx}
+
+        <div className="found-friends">
+          {this.state.foundInfo === '' ? (
+            ''
+          ) : (
+            <FoundFriends
+              friendsInfo={this.state.foundInfo}
+              sessionId={this.state.sessionId}
+            />
+          )}
+        </div>
+
+        <div className="search">
+          <input
+            className="search-inputBox"
+            type="text"
+            onChange={this.handleOnChange}
           />
-        ))}
+          <button className="search-inputButton" onClick={this.handleOnClick}>
+            FIND
+          </button>
+        </div>
       </div>
+
+      // <div className="FriendsList">
+      //   <div className="search">
+      //     <br />
+      //     <br />
+      //     <br />
+      //     <br />
+      //     <br />
+      //     <br />
+      //     <br />
+      //     <input type="text" onChange={this.handleOnChange} />
+      //     <button onClick={this.handleOnClick}>친구 찾기</button>
+      //     <div className="result">
+      //       {this.state.foundInfo === "" ? (
+      //         ""
+      //       ) : (
+      //         <FoundFriends
+      //           friendsInfo={this.state.foundInfo}
+      //           sessionId={this.state.sessionId}
+      //         />
+      //       )}
+      //     </div>
+      //   </div>
+
+      //   {this.state.friends.map((friendsInfo, idx) => (
+      //     <Friends
+      //       history={this.props.history}
+      //       sessionId={this.props.sessionId}
+      //       friendsInfo={friendsInfo}
+      //       key={idx}
+      //     />
+      //   ))}
+      // </div>
     );
   }
 }

@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Zen+Dots&display=swap");
+
+.friends-wrap {
+  height: 100%;
+  width: 100%;
+  min-width: 785px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  padding: 4%;
+  gap: 5px;
+}
+
+.friends-Box {
+  display: flex;
+  width: 100%;
+  grid-template-columns: 0.6fr 2fr 0.8fr;
+  grid-template-areas: "friends-delete-btn friends-userId friends-chatBtn";
+  align-items: center;
+
+  padding: 3%;
+  /* background-color: #ec2d2c; */
+  background: #833ab4;
+  background: -webkit-linear-gradient(to right, #fd1d1d, #fcb045);
+  background: linear-gradient(to right, #fd1d1d, #fcb045);
+  /* border-radius: 20px; */
+  border-radius: 10px;
+  gap: 10px;
+  height: 3rem;
+}
+
+/* .friends-profileImg {
+  font-family: "Zen Dots", cursive;
+  grid-area: friends-profileImg;
+  border: 1.9px solid white;
+  border-radius: 70px;
+  text-align: center;
+  margin: 4px;
+  height: 70px;
+  width: 70px;
+} */
+
+.friends-userId {
+  display: flex;
+  font-family: "Zen Dots", cursive;
+  font-size: 1rem;
+  grid-area: friends-userId;
+  height: 100%;
+  width: 70%;
+  margin-top: 10px;
+  text-align: center;
+  justify-content: center;
+
+  color: white;
+}
+
+.friends-chatBtn {
+  all: unset;
+  font-family: "Zen Dots", cursive;
+  grid-area: friends-chatBtn;
+  text-align: center;
+  height: 2rem;
+  width: 90px;
+  color: white;
+  border-radius: 10px;
+  background-color: #aa2e2e;
+  transition: background-color 0.7s;
+}
+
+.friends-chatBtn:hover {
+  background-color: #6b193e;
+  cursor: pointer;
+}
+
+.far fa-trash-alt {
+  background-color: #fc4645;
+}
+
+.far fa-trash-alt:hover {
+  color: red;
+}

@@ -1,0 +1,11 @@
+.chatList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  background-color: #c7c7c7cb;
+  border-radius: 30px;
+  padding: 5%;
+  place-items: center;
+  gap: 5px;
+}

@@ -1,4 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Zen+Dots&display=swap");
+
 .footer {
+  display: grid;
+  min-height: 100px;
+  height: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  border-radius: 30px;
+  border: 2px solid #f95756;
+  font-family: "Zen Dots", cursive;
+  place-items: center;
+}
+
+.footer div {
+  position: relative;
+  font-size: 1rem;
+  font-family: "Zen Dots", cursive;
+  padding: 6px 12px;
+  color: #808080;
+}
+
+.footer div::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: #fc4645;
+  transition: all 0.5s ease-out;
+  color: #fc4645;
+}
+
+.footer div:hover {
+  color: #fc4645;
+  cursor: pointer;
+}
+
+.footer div:hover::after {
+  width: 80%;
+}
+
+/* .footer {
   position: absolute;
   border: 1px solid black;
   width: 100%;
@@ -17,10 +61,10 @@
 }
 .friends {
   font-size: 40px;
-  font-size: 40px;
   color: black;
 }
+
 .mypage {
   font-size: 40px;
   color: black;
-}
+} */
