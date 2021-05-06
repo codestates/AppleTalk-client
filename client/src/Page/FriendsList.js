@@ -1,8 +1,8 @@
-import React from "react";
-import Friends from "../Component/Friends";
-import FoundFriends from "../Component/FoundFriends";
-import axios from "axios";
-import "../Css/FriendsList.css";
+import React from 'react';
+import Friends from '../Component/Friends';
+import FoundFriends from '../Component/FoundFriends';
+import axios from 'axios';
+import '../Css/FriendsList.css';
 const server = process.env.REACT_APP_SERVER_URL;
 
 class FriendsList extends React.Component {
@@ -10,9 +10,9 @@ class FriendsList extends React.Component {
     super(props);
     this.state = {
       friends: [],
-      friendId: "",
-      foundInfo: "",
-      sessionId: "",
+      friendId: '',
+      foundInfo: '',
+      sessionId: '',
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
@@ -59,30 +59,11 @@ class FriendsList extends React.Component {
               key={idx}
             />
           ))}
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
-          <Friends />
         </div>
 
         <div className="found-friends">
-          {this.state.foundInfo === "" ? (
-            ""
+          {this.state.foundInfo === '' ? (
+            ''
           ) : (
             <FoundFriends
               friendsInfo={this.state.foundInfo}

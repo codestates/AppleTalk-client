@@ -1,6 +1,6 @@
-import React from "react";
-import axios from "axios";
-import "../Css/Friends.css";
+import React from 'react';
+import axios from 'axios';
+import '../Css/Friends.css';
 
 const server = process.env.REACT_APP_SERVER_URL;
 // const socketServer = process.env.REACT_APP_SOCKET_URL;
@@ -10,8 +10,8 @@ class FriendsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      myid: "",
-      friendsInfo: "",
+      myid: '',
+      friendsInfo: '',
     };
     this.handleDeleteBtn = this.handleDeleteBtn.bind(this);
     this.handleChatBtn = this.handleChatBtn.bind(this);
@@ -24,7 +24,7 @@ class FriendsList extends React.Component {
   }
   async handleChatBtn() {
     this.props.history.push({
-      pathname: "/chattingRoom",
+      pathname: '/chattingRoom',
       datas: {
         myid: this.state.myid,
         friendId: this.state.friendsInfo.friend_id,
@@ -44,9 +44,8 @@ class FriendsList extends React.Component {
         <button className="friends-delete-btn" onClick={this.handleDeleteBtn}>
           <i className="far fa-trash-alt"></i>
         </button>
-        <div className="friends-userId">14</div>
-        {/* {this.state.friendsInfo.user_id} */}
-        <button className="friends-chatBtn" onClick={this.handleOnClick}>
+        <div className="friends-userId">{this.state.friendsInfo.user_name}</div>
+        <button className="friends-chatBtn" onClick={this.handleChatBtn}>
           Chat
         </button>
       </div>
