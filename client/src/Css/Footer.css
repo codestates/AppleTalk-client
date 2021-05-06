@@ -2,6 +2,7 @@
 
 .footer {
   display: grid;
+  min-height: 100px;
   height: 50%;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;

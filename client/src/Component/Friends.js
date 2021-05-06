@@ -44,7 +44,8 @@ class FriendsList extends React.Component {
         <button className="friends-delete-btn" onClick={this.handleDeleteBtn}>
           <i className="far fa-trash-alt"></i>
         </button>
-        <div className="friends-userId">{this.state.friendsInfo.user_id}</div>
+        <div className="friends-userId">14</div>
+        {/* {this.state.friendsInfo.user_id} */}
         <button className="friends-chatBtn" onClick={this.handleOnClick}>
           Chat
         </button>

@@ -59,6 +59,25 @@ class FriendsList extends React.Component {
               key={idx}
             />
           ))}
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
+          <Friends />
         </div>
 
         <div className="found-friends">

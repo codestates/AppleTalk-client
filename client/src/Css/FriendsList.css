@@ -22,8 +22,14 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   padding: 5%;
+  overflow-y: scroll;
+  height: 450px;
+  -ms-overflow-style: none;
 }
 
+.linked-friends::-webkit-scrollbar {
+  display: none;
+}
 .search {
   display: flex;
   justify-content: center;
