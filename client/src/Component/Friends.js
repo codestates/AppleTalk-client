@@ -32,10 +32,11 @@ class FriendsList extends React.Component {
     });
   }
   async handleDeleteBtn() {
-    await axios.post(`${server}/friend/remove/`, {
+    await axios.post(`${server}/friend/remove`, {
       userid: this.state.myid,
       friendid: this.state.friendsInfo.friend_id,
     });
+    this.props.reload(this.state.myid);
   }
   render() {
     return (

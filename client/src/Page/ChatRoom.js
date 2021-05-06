@@ -11,8 +11,10 @@ class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      roomNum: '',
       message: '',
-      messageList: [],
+      logData: [],
+      newMessage: [],
     };
     this.handleInputMessage = this.handleInputMessage.bind(this);
     this.handleBtnClick = this.handleBtnClick.bind(this);
@@ -20,6 +22,7 @@ class ChatRoom extends React.Component {
   }
   //방 접속 구현
   async componentWillMount() {
+    // socket = io('http://localhost:8888/testnamespace');
     let roomNum;
     await axios
       .post(`${server}/chat/makeroom`, {
@@ -33,19 +36,19 @@ class ChatRoom extends React.Component {
       .get(`${server}/chat/chatlist?roomid=${roomNum}`)
       .then((response) => {
         this.setState({
-          messageList: [...this.state.messageList, ...response.data.data],
+          logData: [...this.state.logData, ...response.data.data],
+          roomNum: response.data.data.room_id,
         });
       });
 
     socket = io(`${server}/${roomNum}`);
     await socket.emit('join', roomNum);
-    socket.on('message', (message) => {
+    socket.on('message', (obj) => {
       this.setState({
-        messageList: [...this.state.messageList, message],
+        newMessage: [...this.state.newMessage, obj],
       });
     });
   }
-
   handleInputMessage(event) {
     this.setState({
       message: event.target.value,
@@ -53,10 +56,15 @@ class ChatRoom extends React.Component {
   }
   handleBtnClick() {
     let message = this.state.message;
-    socket.emit('message', message);
+    let obj = {
+      content: message,
+      user_id: this.props.location.datas.myid,
+      room_id: this.state.roomNum,
+    };
+    socket.emit('message', obj);
   }
   handleOutClick() {
-    socket.emit('disconnection', this.props.location.datas.myid);
+    socket.disconnect();
     this.props.history.push('/');
   }
 
@@ -73,7 +81,15 @@ class ChatRoom extends React.Component {
         <input type="text" onChange={this.handleInputMessage} />
         <button onClick={this.handleBtnClick}>메세지 전송</button>
         <button onClick={this.handleOutClick}>방나가기</button>
-        {this.state.messageList.map((message, idx) => (
+        {this.state.newMessage.map((message, idx) => (
+          <Message
+            myid={this.props.location.datas.myid}
+            message={message.content}
+            writer={message.user_id}
+            key={idx}
+          />
+        ))}
+        {this.state.logData.map((message, idx) => (
           <Message
             myid={this.props.location.datas.myid}
             message={message.content}

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import NavBar from "./Component/NavBar";
-import Footer from "./Component/Footer";
-import Login from "./Component/Login";
-import SignIn from "./Component/SignIn";
-import MyPage from "./Component/MyPage";
-import ChatList from "./Page/ChatList";
-import FriendsList from "./Page/FriendsList";
-import ChatRoom from "./Page/ChatRoom";
-import { Route, useHistory } from "react-router-dom";
-import "./App.css";
+import React, { useState } from 'react';
+import NavBar from './Component/NavBar';
+import Footer from './Component/Footer';
+import Login from './Component/Login';
+import SignIn from './Component/SignIn';
+import MyPage from './Component/MyPage';
+import ChatList from './Page/ChatList';
+import FriendsList from './Page/FriendsList';
+import ChatRoom from './Page/ChatRoom';
+import { Route, useHistory } from 'react-router-dom';
+import './App.css';
 
 const App = (props) => {
   const [sessionId, setSessionId] = useState();
@@ -24,7 +24,9 @@ const App = (props) => {
   const handleunLogin = () => {
     setLogin(true);
   };
-
+  const handleLogOut = () => {
+    setLogin(false);
+  };
   return (
     <div className="container">
       <NavBar history={history} />
@@ -50,9 +52,14 @@ const App = (props) => {
         }
       />
       {isLogin ? (
-        <Footer userId={userId} sessionId={sessionId} history={history} />
+        <Footer
+          handleLogOut={handleLogOut}
+          userId={userId}
+          sessionId={sessionId}
+          history={history}
+        />
       ) : (
-        ""
+        ''
       )}
     </div>
   );

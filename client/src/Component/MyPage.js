@@ -1,6 +1,6 @@
-import axios from "axios";
-import React from "react";
-import "../Css/MyPage.css";
+import axios from 'axios';
+import React from 'react';
+import '../Css/MyPage.css';
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -8,10 +8,10 @@ class MyPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trashpassword: "",
-      password: "",
-      mobile: "",
-      email: "",
+      trashpassword: '',
+      password: '',
+      mobile: '',
+      email: '',
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmitBtn = this.handleSubmitBtn.bind(this);
@@ -35,11 +35,11 @@ class MyPage extends React.Component {
   };
   handleSubmitBtn() {
     if (this.state.trashpassword === this.state.password) {
-      alert("이미 사용중인 password입니다");
+      alert('이미 사용중인 password입니다');
     } else if (this.state.mobile.length === 0) {
-      alert("핸드폰 번호를 입력해 주세요");
+      alert('핸드폰 번호를 입력해 주세요');
     } else if (this.state.email.length === 0) {
-      alert("E-mail을 입력해 주세요");
+      alert('E-mail을 입력해 주세요');
     } else {
       axios
         .post(`${server}/user/change`, {
@@ -50,8 +50,9 @@ class MyPage extends React.Component {
         })
         .then((response) => {
           if (response.status === 200) {
-            alert("수정 완료! 로그아웃 되었습니다!");
-            this.props.history.push("/");
+            alert('수정 완료! 로그아웃 되었습니다!');
+            this.props.location.handleLogOut();
+            this.props.history.push('/');
           }
         });
     }
@@ -64,7 +65,7 @@ class MyPage extends React.Component {
           <form action="">
             <div className="int-area">
               <input
-                onChange={this.handleInput("password")}
+                onChange={this.handleInput('password')}
                 type="password"
                 name="pw
               "
@@ -77,22 +78,11 @@ class MyPage extends React.Component {
 
             <div className="myPage-int-area">
               <input
-                type="password"
-                name="pwch
-              "
-                id="pwch"
-                autoComplete="off"
-                required
-              ></input>
-              <label htmlFor="pwch">Password confirm</label>
-            </div>
-
-            <div className="myPage-int-area">
-              <input
-                onChange={this.handleInput("mobile")}
+                onChange={this.handleInput('mobile')}
                 type="text"
                 name="Mobile
               "
+                value={this.state.mobile}
                 id="Mobile"
                 autoComplete="off"
                 required
@@ -102,10 +92,11 @@ class MyPage extends React.Component {
 
             <div className="myPage-int-area">
               <input
-                onChange={this.handleInput("email")}
+                onChange={this.handleInput('email')}
                 type="text"
                 name="Email
               "
+                value={this.state.email}
                 id="Email"
                 autoComplete="off"
                 required
