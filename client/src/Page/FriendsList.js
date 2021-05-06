@@ -16,6 +16,7 @@ class FriendsList extends React.Component {
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.reload = this.reload.bind(this);
   }
   componentDidMount() {
     let sessionId;
@@ -29,6 +30,13 @@ class FriendsList extends React.Component {
     axios.get(`${server}/friend/list?id=${sessionId}`).then((response) => {
       this.setState({
         friends: [...this.state.friends, ...response.data],
+      });
+    });
+  }
+  reload(sessionId) {
+    axios.get(`${server}/friend/list?id=${sessionId}`).then((response) => {
+      this.setState({
+        friends: [...response.data],
       });
     });
   }
@@ -57,6 +65,7 @@ class FriendsList extends React.Component {
               sessionId={this.props.sessionId}
               friendsInfo={friendsInfo}
               key={idx}
+              reload={this.reload}
             />
           ))}
         </div>
@@ -68,6 +77,7 @@ class FriendsList extends React.Component {
             <FoundFriends
               friendsInfo={this.state.foundInfo}
               sessionId={this.state.sessionId}
+              reload={this.reload}
             />
           )}
         </div>

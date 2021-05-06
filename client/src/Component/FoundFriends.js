@@ -1,6 +1,6 @@
-import React from "react";
-import axios from "axios";
-import "../Css/FoundFriends.css";
+import React from 'react';
+import axios from 'axios';
+import '../Css/FoundFriends.css';
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -8,8 +8,8 @@ class FriendsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      myid: "",
-      friendsInfo: "",
+      myid: '',
+      friendsInfo: '',
     };
     this.handleOnClick = this.handleOnClick.bind(this);
   }
@@ -18,6 +18,7 @@ class FriendsList extends React.Component {
       userid: this.state.myid,
       friendid: this.state.friendsInfo.id,
     });
+    this.props.reload(this.state.myid);
   }
   componentDidMount() {
     this.setState({
