@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Zen+Dots&display=swap');
+
+.chatroom-wrap {
+  display: grid;
+  grid-template-rows: 9fr 1fr;
+  height: 100%;
+  background: #c7c7c7cb;
+  border-radius: 25px;
+  padding: 20px;
+}
+.message-output-area {
+  display: block;
+  border-radius: 15px;
+  height: 600px;
+  background-color: #e4e4e4cb;
+  padding: 20px 35px;
+  overflow-y: scroll;
+}
+.message-output-area::-webkit-scrollbar {
+  display: none;
+}
+.message-input-area {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  place-items: center;
+}
+.message-inputbox {
+  all: unset;
+  width: 20rem;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #585858;
+  font-size: 1rem;
+  color: #808080;
+  outline: none;
+  font-family: 'Zen Dots', cursive;
+  margin-bottom: 18px;
+  margin-left: 20px;
+}
+.message-send-btn {
+  all: unset;
+  font-family: 'Zen Dots', cursive;
+  width: 6rem;
+  height: 2rem;
+  background: #fc4645;
+  color: #fff;
+  font-size: 1rem;
+  font-size-adjust: inherit;
+  border: none;
+  border-radius: 15px;
+  margin-left: 4px;
+  font-family: 'Zen Dots', cursive;
+  text-align: center;
+  margin-right: 4px;
+}
+.message-send-btn:hover {
+  background: #5f1a1a;
+  cursor: pointer;
+}
+.exit-room-btn {
+  all: unset;
+  font-family: 'Zen Dots', cursive;
+  width: 6rem;
+  height: 2rem;
+  background: #fc4645;
+  color: #fff;
+  font-size: 1rem;
+  font-size-adjust: inherit;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  font-family: 'Zen Dots', cursive;
+}
+
+.exit-room-btn:hover {
+  background: #5f1a1a;
+  cursor: pointer;
+}
