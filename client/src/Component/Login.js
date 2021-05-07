@@ -1,30 +1,30 @@
-import React from "react";
-import "../Css/Login.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React from 'react';
+import '../Css/Login.css';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 const server = process.env.REACT_APP_SERVER_URL;
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userid: "",
-      password: "",
+      userid: '',
+      password: '',
     };
     this.handleLoginBtn = this.handleLoginBtn.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleunLoginBtn = this.handleunLoginBtn.bind(this);
   }
   handleunLoginBtn() {
-    axios
-      .get(`${server}/user/nonMember`)
-      .then((response) => this.props.handleunLogin());
+    axios.get(`${server}/user/nonMember`).then((response) => {
+      this.props.handleLogin(response.data.id, response.data.id);
+    });
   }
   handleLoginBtn() {
     if (this.state.userid.length === 0) {
-      alert("아이디 입력해주세요!");
+      alert('아이디 입력해주세요!');
     } else if (this.state.password.length === 0) {
-      alert("비밀번호 입력해 주세요!");
+      alert('비밀번호 입력해 주세요!');
     } else {
       axios
         .post(`${server}/user/login`, {
@@ -35,7 +35,7 @@ class Login extends React.Component {
           if (response.status === 200) {
             this.props.handleLogin(response.data.id, response.data.user_id);
           } else if (response.status === 401) {
-            alert("없는 아이디 또는 비밀번호 오류!");
+            alert('없는 아이디 또는 비밀번호 오류!');
           }
         });
     }
@@ -56,7 +56,7 @@ class Login extends React.Component {
             <div className="int-area">
               <input
                 className="userid"
-                onChange={this.handleInput("userid")}
+                onChange={this.handleInput('userid')}
                 type="text"
                 name="id"
                 id="id"
@@ -69,7 +69,7 @@ class Login extends React.Component {
             <div className="int-area">
               <input
                 className="password"
-                onChange={this.handleInput("password")}
+                onChange={this.handleInput('password')}
                 type="password"
                 name="pw
             "
