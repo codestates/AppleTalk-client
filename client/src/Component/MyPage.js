@@ -108,6 +108,16 @@ class MyPage extends React.Component {
           <div className="myPage-caption">
             <button onClick={this.handleSubmitBtn}>Modify</button>
           </div>
+          <div className="myPage-caption">
+            <button
+              onClick={() => {
+                this.props.location.handleLogOut();
+                this.props.history.push('/');
+              }}
+            >
+              Logout
+            </button>
+          </div>
         </section>
       </div>
 
