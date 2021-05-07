@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Css/Message.css';
 
 class Message extends React.Component {
   constructor(props) {
@@ -9,7 +10,16 @@ class Message extends React.Component {
     };
   }
   render() {
-    return <div>{this.state.message}</div>;
+    return (
+      <div className="send-msg-area">
+        <i className="icon" class="fas fa-user-circle fa-3x"></i>
+        {this.props.myid === this.props.writer ? (
+          <div className="send-msg">{this.state.message}</div>
+        ) : (
+          <div className="receive-msg">{this.state.message}</div>
+        )}
+      </div>
+    );
   }
 }
 

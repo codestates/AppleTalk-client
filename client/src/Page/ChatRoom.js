@@ -70,33 +70,39 @@ class ChatRoom extends React.Component {
 
   render() {
     return (
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <input type="text" onChange={this.handleInputMessage} />
-        <button onClick={this.handleBtnClick}>메세지 전송</button>
-        <button onClick={this.handleOutClick}>방나가기</button>
-        {this.state.newMessage.map((message, idx) => (
-          <Message
-            myid={this.props.location.datas.myid}
-            message={message.content}
-            writer={message.user_id}
-            key={idx}
+      <div className="chatroom-wrap">
+        <div className="message-output-area">
+          {this.state.newMessage.map((message, idx) => (
+            <Message
+              myid={this.props.location.datas.myid}
+              message={message.content}
+              writer={message.user_id}
+              key={idx}
+            />
+          ))}
+          {this.state.logData.map((message, idx) => (
+            <Message
+              myid={this.props.location.datas.myid}
+              message={message.content}
+              writer={message.user_id}
+              key={idx}
+            />
+          ))}
+        </div>
+
+        <div className="message-input-area">
+          <input
+            className="message-inputbox"
+            type="text"
+            onChange={this.handleInputMessage}
           />
-        ))}
-        {this.state.logData.map((message, idx) => (
-          <Message
-            myid={this.props.location.datas.myid}
-            message={message.content}
-            writer={message.user_id}
-            key={idx}
-          />
-        ))}
+          <button className="message-send-btn" onClick={this.handleBtnClick}>
+            SEND
+          </button>
+          <button className="exit-room-btn" onClick={this.handleOutClick}>
+            EXIT
+          </button>
+        </div>
       </div>
     );
   }

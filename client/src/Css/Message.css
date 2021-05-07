@@ -1,0 +1,22 @@
+.send-msg-area {
+  display: flex;
+  align-items: center;
+  color: rgb(95, 95, 95);
+}
+
+.send-msg {
+  background-color: #ffae00;
+  width: fit-content;
+  padding: 18px;
+  margin: 10px;
+  border-radius: 20px;
+  color: black;
+}
+.receive-msg {
+  background-color: #369ce0;
+  width: fit-content;
+  padding: 18px;
+  margin: 10px;
+  border-radius: 20px;
+  color: black;
+}
