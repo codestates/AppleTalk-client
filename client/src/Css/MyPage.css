@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.myPageBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+  position: relative;
+  /* background: url("bg.jpg") no-repeat center;
+  background-size: cover; */
+}
+
+.myPageBox::before {
+  height: 100%;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 30px;
+  background-color: #c7c7c7cb;
+}
+
+.myPage-form {
+  position: relative;
+  z-index: 2;
+}
+
+.myPage-form h1 {
+  font-size: 32px;
+  color: #fc4645;
+  text-align: center;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.myPage-int-area {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.myPage-int-area:first-child {
+  margin-top: 0;
+}
+
+.myPage-int-area input {
+  width: 100%;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1.5px solid #808080;
+  font-size: 1rem;
+  color: #808080;
+  outline: none;
+}
+
+.myPage-int-area label {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  font-size: 1rem;
+  color: #808080;
+  transition: top 0.5s ease;
+}
+
+.myPage-int-area input:focus + label,
+.myPage-int-area input:valid + label {
+  top: 0;
+  font-size: 13px;
+  color: #fc4645;
+}
+
+.myPage-caption {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.myPage-caption button {
+  width: 100%;
+  height: 30px;
+  background: #fc4645;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+}
+
+.myPage-caption button:hover {
+  background: #5f1a1a;
+}
